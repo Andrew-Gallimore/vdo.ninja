@@ -1,67 +1,103 @@
+
+/*
+Main.css is used in at least these other files:
+- index.html
+- convert.html ver=40
+- devices.html ver=11
+- midi.html
+- room.html ver=368
+- supports.html ver=11
+
+
 :root {
-	/* Discord Greys - Dark to Lighter */
-	--discord-grey-0: #121212;
-	--discord-grey-1: #1e1f22;
-	--discord-grey-2: #232428;
-	--discord-grey-3: #2c2c2d;
-	--discord-grey-4: #2e3035;
-	--discord-grey-5: #313338;
-	--discord-grey-6: #383a40;
-	--discord-grey-7: #404249; /* primary */
-	--discord-grey-8: #5e6064;
+	--background-color: #141926;
+	...
+}
+body.darktheme {
+	--background-color: #141926;
+	...
+}
+*/
 
-	--discord-text: hsl( 210 calc(1 * 9.1%) 92% /1);
 
-	--darktheme-red: rgb(161, 45, 45);
-	--darktheme-blue: rgb(33, 69, 114);
-	--darktheme-green: rgb(36, 88, 49);
-	--darktheme-lightgreen: #008770;
-	--darktheme-brown: rgb(96, 58, 25);
-	--darktheme-yellow: rgb(84, 70, 9);
+:root {
+	/* ==== Dark theme (dt) ==== */
 
-	/* Lightmode white - Darker to lighter */
-	--lighttheme-1: #fff;
-	--lighttheme-2: #f3f3f3;
-	--lighttheme-3: #ddd;
-	--lighttheme-4: #ccc; /* primary */
-	--lighttheme-5: #bbb;
-	--lighttheme-6: #aaa;
-	--lighttheme-7: #7e7e7e;
-	--lighttheme-8: #373737;
-	--lighttheme-text: black;
+	/* Greys - Dark to Lighter */
+	/* --> Based on discord grey's */
+	--dt-grey-0: #121212;
+	--dt-grey-1: #1e1f22;
+	--dt-grey-2: #232428; /* unused */
+	--dt-grey-3: #2c2c2d;
+	--dt-grey-4: #2e3035; /* unused */
+	--dt-grey-5: #313338;
+	--dt-grey-6: #383a40;
+	--dt-grey-7: #404249; /* primary (ex: cards) */
+	--dt-grey-8: #5e6064;
 
-	/* Director v2 - General colors */
-	/* -- Links */
-	--a-dark-link: #69aadc;
-	--a-dark-visited: #69aadc;
-	--a-dark-hover: #6da5dd;
-	--a-dark-focus: #6da5dd;
-	--a-dark-active: #3a80c6;
+	/* Text colors */
+	--dt-text-color: hsl( 210 calc(1 * 9.1%) 92% /1); /* I think thats just white...? -Andrew*/
+	
+	/* Directors page button colors */
+	--dt-blue: rgb(33, 69, 114);
+	--dt-green: rgb(36, 88, 49);
+	--dt-brown: rgb(96, 58, 25);
+	--dt-yellow: rgb(84, 70, 9);
 
-	--a-darker-link: #b9dff9;
-	--a-darker-visited: #b9dff9;
-	--a-darker-hover: #048ae8;
-	--a-darker-focus: #d9e4eb;
-	--a-darker-active: #d9e4eb;
+	/* Links */
+	--dt-link: #69aadc;
+	--dt-link-visited: #69aadc;
+	--dt-link-hover: #6da5dd;
+	--dt-link-focus: #6da5dd;
+	--dt-link-active: #3a80c6;
 
-	--a-lighter-link: #9ed0e1;
-	--a-lighter-visited: #9ed0e1;
-	--a-lighter-hover: #8acee4;
-	--a-lighter-focus: #8acee4;
-	--a-lighter-active: #89d5ee;
+	--dt-brighter-link: #b9dff9;
+	--dt-brighter-link-visited: #b9dff9;
+	--dt-brighter-link-hover: #048ae8;
+	--dt-brighter-link-focus: #d9e4eb;
+	--dt-brighter-link-active: #d9e4eb;
 
-	--a-link:  #144267;
-	--a-visited: #144267;
-	--a-hover: #38668c;
-	--a-focus: #38668c;
-	--a-active: #0165b5;
 
-	/* -- Box colors */
-	--director-box: rgb(165 119 18);
-	--codirector-box: rgb(67 122 213);
 
-	--director-dark-box: rgb(165 119 18);
-	--codirector-dark-box: rgb(129 127 127);
+
+	/* ==== Light theme (lt) ==== */
+
+	/* Whites - Light to Dark */
+	--lt-white-1: #fff;
+	--lt-white-2: #f3f3f3;
+	--lt-white-3: #ddd;
+	--lt-white-4: #ccc; /* primary */
+	--lt-white-5: #bbb; /* unused */
+	--lt-white-6: #aaa;
+	--lt-white-7: #7e7e7e;
+	--lt-white-8: #373737; /* unused */
+
+	/* Text colors */
+	--lt-text-color: black;
+
+	/* Directors page button colors */
+	--lt-blue: rgb(170, 204, 248);
+	--lt-green: rgb(189, 228, 199);
+	--lt-peach: rgb(228, 203, 189); /* Equivalent of brown in darktheme */
+	--lt-yellow: rgb(255, 229, 127);
+
+	/* Links */
+	--lt-link:  #144267;
+	--lt-link-visited: #144267;
+	--lt-link-hover: #38668c;
+	--lt-link-focus: #38668c;
+	--lt-link-active: #0165b5;
+
+	--lt-brighter-link: #9ed0e1;
+	--lt-brighter-link-visited: #9ed0e1;
+	--lt-brighter-link-hover: #8acee4;
+	--lt-brighter-link-focus: #8acee4;
+	--lt-brighter-link-active: #89d5ee;
+
+
+
+
+
 
 	/* Original colors */
 	--background-color: #141926;
@@ -223,7 +259,7 @@ select#audioSource option:hover {
     color: black;
 }
 select#audioSource[size='1'] option {
-    background-color: var(--lighttheme-1)!important;
+    background-color: var(--lt-white-1)!important;
 	color:black;
 }
 .darktheme select#audioSource[size='1'] option {
@@ -293,19 +329,19 @@ th {
 }
 
 a:link {
-	color: var(--a-link);
+	color: var(--lt-link);
 }
 a:visited {
-	color: var(--a-visited);
+	color: var(--lt-link-visited);
 }
 a:hover {
-	color: var(--a-hover);
+	color: var(--lt-link-hover);
 }
 a:focus {
-	color: var(--a-focus);
+	color: var(--lt-link-focus);
 }
 a:active {
-	color: var(--a-active);
+	color: var(--lt-link-active);
 }
 
 a.soloLink:link {
@@ -329,67 +365,67 @@ a {
 	text-decoration: none;
 }
 .darktheme a:link {
-	color: var(--a-dark-link);
+	color: var(--dt-link);
 }
 .darktheme a:visited {
-	color: var(--a-dark-visited);
+	color: var(--dt-link-visited);
 }
 .darktheme a:hover {
-	color: var(--a-dark-hover);
+	color: var(--dt-link-hover);
 }
 .darktheme a:focus {
-	color: var(--a-dark-focus);
+	color: var(--dt-link-focus);
 }
 .darktheme a:active {
-	color: var(--a-dark-active);
+	color: var(--dt-link-active);
 }
 
 .directorContainer a:link {
-	color: var(--a-lighter-link);
+	color: var(--lt-brighter-link);
 }
 .directorContainer a:visited {
-	color: var(--a-lighter-visited);
+	color: var(--lt-brighter-link-visited);
 }
 .directorContainer a:hover {
-	color: var(--a-lighter-hover);
+	color: var(--lt-brighter-link-hover);
 }
 .directorContainer a:focus {
-	color: var(--a-lighter-focus);
+	color: var(--lt-brighter-link-focus);
 }
 .directorContainer a:active {
-	color: var(--a-lighter-active);
+	color: var(--lt-brighter-link-active);
 }
 
 .infoblob a:link {
-	color: var(--a-lighter-link);
+	color: var(--lt-brighter-link);
 }
 .infoblob a:visited {
-	color: var(--a-lighter-visited);
+	color: var(--lt-brighter-link-visited);
 }
 .infoblob a:hover {
-	color: var(--a-lighter-hover);
+	color: var(--lt-brighter-link-hover);
 }
 .infoblob a:focus {
-	color: var(--a-lighter-focus);
+	color: var(--lt-brighter-link-focus);
 }
 .infoblob a:active {
-	color: var(--a-lighter-active);
+	color: var(--lt-brighter-link-active);
 }
 
 .darktheme .infoblob a:link {
-	color: var(--a-darker-link);
+	color: var(--dt-brighter-link);
 }
 .darktheme .infoblob a:visited {
-	color: var(--a-darker-visited);
+	color: var(--dt-brighter-link-visited);
 }
 .darktheme .infoblob a:hover {
-	color: var(--a-darker-hover);
+	color: var(--dt-brighter-link-hover);
 }
 .darktheme .infoblob a:focus {
-	color: var(--a-darker-focus);
+	color: var(--dt-brighter-link-focus);
 }
 .darktheme .infoblob a:active {
-	color: var(--a-darker-active);
+	color: var(--dt-brighter-link-active);
 }
 
 input {
@@ -783,7 +819,7 @@ body.darktheme .credits>a:visited {
 }
 
 .darktheme .advancedAudioSettings .settingsLabel, .darktheme .advancedVideoSettings .settingsLabel {
-	color: var(--lighttheme-3);
+	color: var(--lt-white-3);
 }
 
 .advancedAudioSettings .settingsLabel, .advancedVideoSettings .settingsLabel {
@@ -899,8 +935,8 @@ hr {
 .directorsgrid .vidcon {
 	display: inline-block;
 	width: 269.7px!important;
-	background: var(--lighttheme-7);
-	color: var(--lighttheme-text);
+	background: var(--lt-white-7);
+	color: var(--lt-text-color);
 	vertical-align: top;
 }
 
@@ -1302,7 +1338,7 @@ button.glyphicon-button.active.focus {
 #subControlButtons {
 	display: flex;
 	position: absolute;
-	background-color: var(--discord-grey-0);
+	background-color: var(--dt-grey-0);
 	box-shadow: 0px 0px 10px rgba(0,0,0,1);
 	pointer-events: auto;
 	border: #cccccc22 1px solid;
@@ -1323,7 +1359,7 @@ button.glyphicon-button.active.focus {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--discord-grey-1);
+	background-color: var(--dt-grey-1);
 	opacity: unset;
 	border-radius: 8px;
 	transition: border-radius 200ms ease-in-out;
@@ -1331,7 +1367,7 @@ button.glyphicon-button.active.focus {
 }
 
 #subControlButtons div:hover {
-	background-color: var(--discord-grey-3);
+	background-color: var(--dt-grey-3);
 	border-radius: 4px;
 }
 button#press2talk{
@@ -1806,7 +1842,7 @@ input[type=range]::-webkit-slider-thumb {
 	cursor: pointer;
 	-webkit-appearance: none;
 	margin-top: -9px;
-	background-color: var(--lighttheme-2);
+	background-color: var(--lt-white-2);
 }
 
 input[type=range]::-moz-range-thumb {
@@ -1816,7 +1852,7 @@ input[type=range]::-moz-range-thumb {
 	width: 24px;
 	border-radius: 3px;
 	cursor: pointer;
-	background-color: var(--lighttheme-2);
+	background-color: var(--lt-white-2);
 }
 
 input[type=range]::-ms-thumb {
@@ -1826,7 +1862,7 @@ input[type=range]::-ms-thumb {
 	width: 24px;
 	border-radius: 3px;
 	cursor: pointer;
-	background-color: var(--lighttheme-2);
+	background-color: var(--lt-white-2);
 }
 
 input[type=range]::-ms-fill-lower {
@@ -2329,7 +2365,7 @@ label {
 
 .darktheme .inner:before,
 .darktheme .inner:after {
-	background: var(--discord-text);
+	background: var(--dt-text-color);
 }
 
 .inner:before,
@@ -2442,7 +2478,7 @@ label {
 	gap: 5px;
 }
 .darktheme .graphSection > span {
-	color: var(--discord-text)
+	color: var(--dt-text-color)
 }
 .graphSection > span {
 	display: block;
@@ -3158,9 +3194,9 @@ video::-webkit-media-controls-panel {
 }
 
 .darktheme .popup-message {
-	background-color: var(--discord-grey-1);
-	border-color: var(--discord-grey-3);
-	color: var(--discord-text);
+	background-color: var(--dt-grey-1);
+	border-color: var(--dt-grey-3);
+	color: var(--dt-text-color);
 	box-shadow: 1px 1px 3px black;
 }
 
@@ -3635,7 +3671,7 @@ div#roomnotes2 {
 }
 
 #yourDirectorStatus {
-	color: var(--discord-text);
+	color: var(--dt-text-color);
 }
 .directorBlue{
 	background-color: #5c7785 !important;
@@ -3737,12 +3773,12 @@ div#roomnotes2 {
 
 /* Specitic CSS for different elements inside the guest control-buttons */
 .darktheme .controlsGrid .director-message-box {
-	background-color: var(--discord-grey-3);
-	border: 1px solid var(--discord-grey-8);
+	background-color: var(--dt-grey-3);
+	border: 1px solid var(--dt-grey-8);
 }
 
 .darktheme .controlsGrid .director-message-box button {
-	background-color: var(--discord-grey-6);
+	background-color: var(--dt-grey-6);
 }
 
 .controlsGrid .director-message-box {
@@ -3757,9 +3793,9 @@ div#roomnotes2 {
 }
 
 .darktheme .controlsGrid .director-message-box textarea {
-	background-color: var(--discord-grey-6);
-	border: 1px solid var(--discord-grey-7);
-	color: var(--discord-text);
+	background-color: var(--dt-grey-6);
+	border: 1px solid var(--dt-grey-7);
+	color: var(--dt-text-color);
 }
 
 .controlsGrid .director-message-box textarea {
@@ -3805,7 +3841,7 @@ div#roomnotes2 {
 }
 
 .darktheme .controlsGrid .orderspan {
-	color: var(--discord-text);
+	color: var(--dt-text-color);
 }
 
 .controlsGrid .orderspan {
@@ -3828,29 +3864,29 @@ div#roomnotes2 {
 /* Hightlights for buttons in the guest control-buttons */
 /* Dark theme */
 .darktheme .controlsGrid .btn-HL-yellow {
-	background-color: var(--darktheme-yellow);
+	background-color: var(--dt-yellow);
 }
 .darktheme .controlsGrid .btn-HL-peach {
-	background-color: var(--darktheme-brown);
+	background-color: var(--dt-brown);
 }
 .darktheme .controlsGrid .btn-HL-green {
-	background-color: var(--darktheme-green);
+	background-color: var(--dt-green);
 }
 .darktheme .controlsGrid .btn-HL-blue {
-	background-color: var(--darktheme-blue);
+	background-color: var(--dt-blue);
 }
 /* Light theme */
 .controlsGrid .btn-HL-yellow {
-	background-color: rgb(255, 229, 127);
+	background-color: var(--lt-yellow);
 }
 .controlsGrid .btn-HL-peach {
-	background-color: rgb(228, 203, 189);
+	background-color: var(--lt-peach);
 }
 .controlsGrid .btn-HL-green {
-	background-color: rgb(189, 228, 199);
+	background-color: var(--lt-green);
 }
 .controlsGrid .btn-HL-blue {
-	background-color: rgb(170, 204, 248)
+	background-color: var(--lt-blue);
 }
 
 /* Hides buttons that are supposed to be hidden when &novice is added to URL */
@@ -3894,7 +3930,7 @@ div#roomnotes2 {
 }
 
 .darktheme .controlCenterBox .flexBreak {
-	border-bottom: 1px double var(--discord-grey-7);
+	border-bottom: 1px double var(--dt-grey-7);
 }
 
 .controlCenterBox .flexBreak {
@@ -3907,9 +3943,9 @@ div#roomnotes2 {
 }
 
 .darktheme .controlCenterBox .flexBreak span {
-	text-shadow: 0px 0px 1px var(--discord-text);
-	background-color: var(--discord-grey-3);
-	color: var(--discord-text);
+	text-shadow: 0px 0px 1px var(--dt-text-color);
+	background-color: var(--dt-grey-3);
+	color: var(--dt-text-color);
 }
 #hangupContainer {
 	font-size: 500%;
@@ -3932,8 +3968,8 @@ div#roomnotes2 {
 	transform: translate(-50%, -50%);
 	text-transform: uppercase;
 	font-size: 10px;
-	text-shadow: 0px 0px 1px var(--discord-text);
-	color: var(--discord-text);
+	text-shadow: 0px 0px 1px var(--dt-text-color);
+	color: var(--dt-text-color);
 	background-color: #7E7E7E;
 	padding: 0px 4px;
 	overflow: hidden;
@@ -4408,7 +4444,7 @@ div.message-card a {
 	background: #e6e8f0;
 }
 .darktheme #guestTips {
-	background-color: var(--discord-grey-7);
+	background-color: var(--dt-grey-7);
 }
 .darktheme #guestTips .las {
 	color: #FFF;
@@ -4578,8 +4614,8 @@ input:checked + .slider:before {
 
 
 .darktheme #promptModal, .darktheme .customModelPopup, .darktheme .promptModal {
-	background-color: var(--discord-grey-5);
-	color: var(--discord-text);
+	background-color: var(--dt-grey-5);
+	color: var(--dt-text-color);
 }
 
 #promptModal, .customModelPopup, .promptModal {
@@ -5198,22 +5234,22 @@ body.darktheme h2 {
 	color: #DDD;
 }
 body.darktheme .column .las {
-	color: var(--discord-text);
+	color: var(--dt-text-color);
 }
 body.darktheme label {
-	color: var(--discord-text);
+	color: var(--dt-text-color);
 }
 body.darktheme #roomHeader{
-	color: var(--discord-text);
+	color: var(--dt-text-color);
 }
 body.darktheme div.multiselect {
-	background-color: var(--discord-grey-7);
+	background-color: var(--dt-grey-7);
 }
 body.darktheme .audioMenu{
-	background-color: var(--discord-grey-7);
+	background-color: var(--dt-grey-7);
 }
 body.darktheme #avatarDiv{
-	background-color: var(--discord-grey-7);
+	background-color: var(--dt-grey-7);
 }
 body.darktheme .selected {
 	border: solid 3px #f8f7f7;
@@ -5225,11 +5261,11 @@ body.darktheme .avatarLabel {
 	color: #f8f7f7;
 }
 body.darktheme .directorsgrid .vidcon {
-	background-color: var(--discord-grey-3);
+	background-color: var(--dt-grey-3);
 }
 body.darktheme .promptModal {
-	background-color: var(--discord-grey-5);
-	color: var(--discord-text);
+	background-color: var(--dt-grey-5);
+	color: var(--dt-text-color);
 }
 body.darktheme .infoblob{
 	color: #CCC;
@@ -5244,8 +5280,8 @@ body.darktheme .actionMessage {
 	background-color: #b1b1b1;
 }
 body.darktheme #chatInput{
-	background-color: var(--discord-grey-7);
-	color: var(--discord-text)
+	background-color: var(--dt-grey-7);
+	color: var(--dt-text-color)
 }
 body.darktheme .alertModal{
 	background-color: #ccc;
@@ -5275,8 +5311,8 @@ body.darktheme .startupWarning>.las  {
 */
 
 button {
-	background-color: var(--lighttheme-2);
-	color: var(--lighttheme-text);
+	background-color: var(--lt-white-2);
+	color: var(--lt-text-color);
 	filter: brightness(1);
 
 	display: inline-flex;
@@ -5288,7 +5324,7 @@ button {
 	padding: 4px 6px;
 	border-radius: 4px;
 
-	border: 1px solid var(--lighttheme-6);
+	border: 1px solid var(--lt-white-6);
 }
 button:hover {
 	filter: brightness(0.98);
@@ -5297,9 +5333,9 @@ button i {
 	font-size: 130%;
 }
 .darktheme :not(.promptModalInner) > button {
-	background-color: var(--discord-grey-5);
-	border: 1px solid var(--discord-grey-8);
-	color: var(--discord-text);
+	background-color: var(--dt-grey-5);
+	border: 1px solid var(--dt-grey-8);
+	color: var(--dt-text-color);
 }
 .darktheme :not(.promptModalInner) > button:hover {
 	filter: brightness(1.05);
@@ -5358,8 +5394,8 @@ button.white {
 }
 
 select {
-	background-color: var(--lighttheme-1);
-	color: var(--lighttheme-text);
+	background-color: var(--lt-white-1);
+	color: var(--lt-text-color);
 	border-radius: 4px;
 	font-size: 16px;
 	padding: 1px 2px;
@@ -5371,19 +5407,19 @@ select {
 }
 .darktheme select {
 	background-color: var(--light-grey);
-	border: 1px solid var(--discord-grey-8);
+	border: 1px solid var(--dt-grey-8);
 	color: var(--near-black);
 	border-radius: 4px;
 }
 .darktheme ul {
-	/*  background-color: var(--discord-grey-3);
-	border: 1px solid var(--discord-grey-8);
-	color: var(--discord-text);*/
+	/*  background-color: var(--dt-grey-3);
+	border: 1px solid var(--dt-grey-8);
+	color: var(--dt-text-color);*/
 }
 ul {
-	/*	 background-color: var(--lighttheme-1);
-	border: 1px solid var(--lighttheme-6);
-	color: var(--lighttheme-text);;*/
+	/*	 background-color: var(--lt-white-1);
+	border: 1px solid var(--lt-white-6);
+	color: var(--lt-text-color);;*/
 	border-radius: 4px;
 }
 
@@ -5394,15 +5430,15 @@ li {
 }
 
 input[type='text'], input[type='password']  {
-	background-color: var(--lighttheme-1);
-	border: 1px solid var(--lighttheme-6);
-	color: var(--lighttheme-text);
+	background-color: var(--lt-white-1);
+	border: 1px solid var(--lt-white-6);
+	color: var(--lt-text-color);
 	border-radius: 4px;
 	padding: 4px;
 	height: 25px;
 }
 input::placeholder {
-	color: var(--lighttheme-4) !important;
+	color: var(--lt-white-4) !important;
 }
 input[type='checkbox'], input[type='radio'] {
 	-ms-transform: scale(1.4);
@@ -5421,30 +5457,30 @@ input[type='checkbox'], input[type='radio'] {
 }
 
 .darktheme :not(.promptModalInner) > input {
-	border: 1px solid var(--discord-grey-8);
+	border: 1px solid var(--dt-grey-8);
 	color: var(--near-black);
 	border-radius: 4px;
 }
 
 .darktheme :not(.promptModalInner) > input::placeholder {
-	color: var(--discord-grey-8) !important;
+	color: var(--dt-grey-8) !important;
 }
 
 .darktheme .card {
-	background-color: var(--discord-grey-7);
+	background-color: var(--dt-grey-7);
 }
 
 .card {
-	background-color: var(--lighttheme-3);
+	background-color: var(--lt-white-3);
 }
 
 .darktheme .container-inner {
-	background-color: var(--discord-grey-7);
+	background-color: var(--dt-grey-7);
 }
 
 .container-inner {
 	display: none;
-	background-color: var(--lighttheme-3);
+	background-color: var(--lt-white-3);
 	min-height: calc(100% - 100px);
 	margin-bottom:30px;
 }
@@ -5476,8 +5512,8 @@ input[type='checkbox'], input[type='radio'] {
 .darktheme #videoSettings2,
 .darktheme #popupSelector_user_settings,
 .darktheme .invite_setting_group {
-	background-color: var(--discord-grey-5);
-	border: 1px solid var(--discord-grey-8);
+	background-color: var(--dt-grey-5);
+	border: 1px solid var(--dt-grey-8);
 }
 .darktheme .largeDarkIcon{
 	color: var(--dark-background-color)!important;
@@ -5531,8 +5567,8 @@ input[type='checkbox'], input[type='radio'] {
 #videoSettings,
 #videoSettings2,
 .invite_setting_group {
-	background-color: var(--lighttheme-2);
-	border: 1px solid var(--lighttheme-4);
+	background-color: var(--lt-white-2);
+	border: 1px solid var(--lt-white-4);
 }
 
 #videoSettings, #videoSettings2 {
@@ -5563,11 +5599,11 @@ input[type='checkbox'], input[type='radio'] {
 }
 
 .darktheme .invite_setting_group {
-	color: var(--discord-text);
+	color: var(--dt-text-color);
 }
 
 .invite_setting_group {
-	color: var(--lighttheme-text);
+	color: var(--lt-text-color);
 }
 
 .invite_setting_item {
@@ -5629,20 +5665,20 @@ input[type='checkbox'], input[type='radio'] {
 	color:white;
 }
 ul#audioSource{
-	background-color: var(--lighttheme-1);
+	background-color: var(--lt-white-1);
 	margin-top: 7px;
 	min-height: 24px;
 }
 ul#audioSource label{
-	background-color: var(--lighttheme-1);
+	background-color: var(--lt-white-1);
 	border: 0;
 }
 ul#audioSource label{
 	color:black;
 }
 ul#audioSource3{
-	background-color: var(--lighttheme-1);
-	border: 1px solid var(--lighttheme-6);
+	background-color: var(--lt-white-1);
+	border: 1px solid var(--lt-white-6);
 }
 .darktheme ul#audioSource{
 	background-color: var(--light-grey);
@@ -5654,12 +5690,12 @@ ul#audioSource3{
 }
 .darktheme ul#audioSource3{
 	background-color: var(--light-grey);
-	border: 1px solid var(--discord-grey-8);
+	border: 1px solid var(--dt-grey-8);
 }
 
 .darktheme #grabDirectorSoloLink {
-	background-color: var(--discord-grey-3);
-	border: 1px solid var(--discord-grey-8);
+	background-color: var(--dt-grey-3);
+	border: 1px solid var(--dt-grey-8);
 }
 #refreshVideoButton > i{
 	cursor: pointer;
@@ -5677,8 +5713,8 @@ ul#audioSource3{
 	width: 100%;
 	outline: 0;
 	border-radius: 4px;
-	background-color: var(--lighttheme-1);
-	border: 1px solid var(--lighttheme-6);
+	background-color: var(--lt-white-1);
+	border: 1px solid var(--lt-white-6);
 }
 
 #grabDirectorSoloLinkParent {
