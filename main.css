@@ -7,16 +7,6 @@ Main.css is used in at least these other files:
 - midi.html
 - room.html ver=368
 - supports.html ver=11
-
-
-:root {
-	--background-color: #141926;
-	...
-}
-body.darktheme {
-	--background-color: #141926;
-	...
-}
 */
 
 
@@ -36,7 +26,8 @@ body.darktheme {
 	--dt-grey-8: #5e6064;
 
 	/* Text colors */
-	--dt-text-color: hsl( 210 calc(1 * 9.1%) 92% /1); /* I think thats just white...? -Andrew*/
+	--dt-text-color: white;
+	--dt-text-lighter-color: #C7C7C7;
 	
 	/* Directors page button colors */
 	--dt-blue: rgb(33, 69, 114);
@@ -73,7 +64,8 @@ body.darktheme {
 	--lt-white-8: #373737; /* unused */
 
 	/* Text colors */
-	--lt-text-color: black;
+	--lt-text-color: #000;
+	--lt-text-lighter-color: #464646;
 
 	/* Directors page button colors */
 	--lt-blue: rgb(170, 204, 248);
@@ -99,17 +91,32 @@ body.darktheme {
 
 
 
-	/* Original colors */
-	--background-color: #141926;
-	--dark-background-color: #02050c;
+	/* Primary variables (can inherit different color themes) */
+	--main-bg-color: #EAEEF1;
+	--header-bg-color: var(--main-bg-color);
+	--modal-bg-color: var(--main-bg-color);
+
+	--text-color: var(--lt-text-color);
+	--text-lighter-color: var(--lt-text-lighter-color);
+
+	--button-primary-bg-color: #fff;
+	--button-primary-border-color: #C4CADC;
+
+	--textInput-bg-color: #fff;
+	--textInput-border-color: #C4CADC;
+	
+	
+	
 	--container-color: #373737;
-	--button-color: #2A2A2A;
 	--blue-accent: #4a4c63;
 	--red-accent: #553737;
 	--light-grey: #ddd;
 	--near-black: #02050c;
-	--green-accent: #3f4f50;
+	--green-accent: #3f4f50; /* used in index.html, check for the rest of the accent colors */
 	--olive-accent: #535D32;
+
+	--triangle: #000;
+	
 	--regular-margin: 10px;
 	--director-margin: 15px 20px 0 0;
 	--fit-style: contain;
@@ -130,6 +137,27 @@ body.darktheme {
 	--full-screen-button: inherit;
 	--color-mode: light;
 	--video-background-image-size: auto 30%;
+}
+/* light theme - default */
+body {
+	...
+}
+/* dark theme */
+body.darktheme {
+	--main-bg-color: #12151B;
+	--header-bg-color: var(--main-bg-color);
+	--modal-bg-color: #191E27;
+
+	--text-color: var(--dt-text-color);
+	--text-lighter-color: var(--dt-text-lighter-color);
+	
+	--button-primary-bg-color: #26335A;
+	--button-primary-border-color: #405184;
+
+	--textInput-bg-color: #282B43;
+	--textInput-border-color: #282B43;
+
+	--triangle: #fff;
 }
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -434,15 +462,30 @@ input {
 	-webkit-app-region: no-drag;
 }
 
-button.grey {
+button.primary {
 	-webkit-app-region: no-drag;
-	padding: 10px;
-	margin: 10px 0px;
+	padding: 4px 8px;
+	margin: 12px 0px;
 	cursor: pointer;
-	border-radius: 2px;
-	background-color: var(--button-color);
-	color: white;
+	border-color: var(--button-primary-border-color);
+	border-radius: 4px;
+	background-color: var(--button-primary-bg-color);
+	color: var(--text-color);
 }
+button.primary:hover {
+	filter: brightness(1.05);
+}
+/* I am replacing most buttons that fall under this selector below with the primary button (I think thats what needs to happen, I
+   am just going through and finding buttons that need the primary styling and adding .primary when I see them */
+
+/* .darktheme :not(.promptModalInner) > button {
+	background-color: var(--dt-grey-5);
+	border: 1px solid var(--dt-grey-8);
+	color: var(--dt-text-color);
+}
+.darktheme :not(.promptModalInner) > button:hover {
+	filter: brightness(1.05);
+} */
 
 button.hint {
 	-webkit-box-shadow: inset 0px 0px 25px #0004;
@@ -471,6 +514,7 @@ button.hint {
 }
 
 /* Clicked buttons overwrite */
+/* Red class is used once in index.html*/
 .red {
 	background-color: #840000 !important;
 }
@@ -478,35 +522,20 @@ button.hint {
 	background-color: #b30c0c !important;
 }
 
+/* Green class used multiple times in index.html */
 .green {
 	background-color: #64c04d !important;
 }
-
 .green:hover {
 	background-color: #76c762 !important;
 }
 
-.blue {
-	background-color: #161699 !important;
-}
-
-.blue:hover {
-	background-color: #2727bb !important;
-}
-
-.brown {
-	background-color: #8d6418 !important;
-}
-
-.brown:hover {
-	background-color: #a06d10 !important;
-}
-
-/* ///////////////////// */
-
+/* Orange class used once in index.html */
 .orange {
 	background-color: #673100 !important;
 }
+
+/* ///////////////////// */
 
 #meshcastMenu{
 	display: inline-block;
@@ -515,13 +544,13 @@ button.hint {
 #header {
 	width: 100%;
 	padding: 1px;
-	background-color: #0F131D;
+	background-color: var(--header-bg-color);
 	color: #FFF;
 	-webkit-app-region: drag;
 }
 #head1{
 	display: inline-block;
-	padding:1px;
+	padding: 16px;
 	position: relative;
 	-webkit-app-region: no-drag;
 }
@@ -1635,7 +1664,7 @@ body {
 	padding: 0 0px;
 	height: 100%;
 	width: 100%;
-	background-color: var(--background-color);
+	background-color: var(--main-bg-color);
 	font-family: Helvetica, Arial, sans-serif;
 	border: 0;
 	margin: 0;
@@ -1645,9 +1674,6 @@ body {
 	display:flex;
 	flex-direction: column;
 	position: fixed;
-}
-body.darktheme{
-	background-color: var(--dark-background-color);
 }
 
 ::-webkit-scrollbar {
@@ -4096,10 +4122,6 @@ a#reshare {
 	font-size: 130%;
 }
 
-#joinroomID {
-	border-radius: 0;
-	padding: 5px;
-}
 #joinroomID+button {
 	margin: 0px var(--regular-margin);
 }
@@ -4613,16 +4635,11 @@ input:checked + .slider:before {
 }
 
 
-.darktheme #promptModal, .darktheme .customModelPopup, .darktheme .promptModal {
-	background-color: var(--dt-grey-5);
-	color: var(--dt-text-color);
-}
-
 #promptModal, .customModelPopup, .promptModal {
 	position: absolute;
-	background-color: rgb(221 221 221);
+	background-color: var(--modal-bg-color);
 	box-shadow: 0 0 30px 10px #0000005c;
-	color: black;
+	color: var(--text-color);
 	font-size: 1.0em;
 	top: 50%;
 	left: 50%;
@@ -4842,7 +4859,7 @@ iframe.insecure {
 }
 
 #modalBackdrop {
-	background: var(--background-color);
+	background: var(--main-bg-color);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -4850,13 +4867,10 @@ iframe.insecure {
 	bottom: 0;
 	z-index: 0;
 	opacity: 0.8;
-}
-#modalBackdrop.darktheme{
-	background-color: var(--dark-background-color);
 }
 
 .modalBackdrop {
-	background: var(--background-color);
+	background: var(--main-bg-color);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -4866,12 +4880,8 @@ iframe.insecure {
 	opacity: 0.8;
 }
 
-.modalBackdrop.darktheme{
-	background-color: var(--dark-background-color);
-}
-
 .opaqueBackdrop{
-	background: var(--background-color);
+	background: var(--main-bg-color);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -4879,9 +4889,6 @@ iframe.insecure {
 	bottom: 0;
 	z-index: 0;
 	opacity: 1.0;
-}
-.opaqueBackdrop.darktheme{
-	background-color: var(--dark-background-color);
 }
 
 .alertModalMessage>select{
@@ -5263,10 +5270,6 @@ body.darktheme .avatarLabel {
 body.darktheme .directorsgrid .vidcon {
 	background-color: var(--dt-grey-3);
 }
-body.darktheme .promptModal {
-	background-color: var(--dt-grey-5);
-	color: var(--dt-text-color);
-}
 body.darktheme .infoblob{
 	color: #CCC;
 }
@@ -5331,14 +5334,6 @@ button:hover {
 }
 button i {
 	font-size: 130%;
-}
-.darktheme :not(.promptModalInner) > button {
-	background-color: var(--dt-grey-5);
-	border: 1px solid var(--dt-grey-8);
-	color: var(--dt-text-color);
-}
-.darktheme :not(.promptModalInner) > button:hover {
-	filter: brightness(1.05);
 }
 
 .gobutton {
@@ -5430,16 +5425,21 @@ li {
 }
 
 input[type='text'], input[type='password']  {
-	background-color: var(--lt-white-1);
-	border: 1px solid var(--lt-white-6);
-	color: var(--lt-text-color);
+	background-color: var(--textInput-bg-color);
+	border: 1px solid var(--textInput-border-color);
+	color: var(--text-color);
 	border-radius: 4px;
-	padding: 4px;
+	padding: 4px 12px;
 	height: 25px;
 }
 input::placeholder {
-	color: var(--lt-white-4) !important;
+	color: var(--text-lighter-color) !important;
+	opacity: 1; /* Firefox */
 }
+input::-ms-input-placeholder { /* Edge 12-18 */
+	color: var(--text-lighter-color) !important;
+}
+
 input[type='checkbox'], input[type='radio'] {
 	-ms-transform: scale(1.4);
 	/* IE */
@@ -5454,16 +5454,6 @@ input[type='checkbox'], input[type='radio'] {
 	margin: 3px;
 
 	cursor:pointer;
-}
-
-.darktheme :not(.promptModalInner) > input {
-	border: 1px solid var(--dt-grey-8);
-	color: var(--near-black);
-	border-radius: 4px;
-}
-
-.darktheme :not(.promptModalInner) > input::placeholder {
-	color: var(--dt-grey-8) !important;
 }
 
 .darktheme .card {
@@ -5516,7 +5506,7 @@ input[type='checkbox'], input[type='radio'] {
 	border: 1px solid var(--dt-grey-8);
 }
 .darktheme .largeDarkIcon{
-	color: var(--dark-background-color)!important;
+	color: var(--main-bg-color) !important;
 }
 #addPasswordBasic,
 #avatarDiv,
